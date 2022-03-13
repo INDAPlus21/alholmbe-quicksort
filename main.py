@@ -32,6 +32,6 @@ if __name__ == '__main__':
     for line in sys.stdin:
         nums = [int(elem) for elem in line.split()][1:]
     quicksort(nums, 0, len(nums)-1)
-    # print(nums)
+
     for num in nums:
         print(num, end=' ')
