@@ -1,23 +1,23 @@
 import sys
 
 
-def help_func(head, tail):
-    if head >= tail:
+def help_func(front, end):
+    if front >= end:
         return
-    l, r = head, tail
-    m = (r - l) // 2 + l
+    left, right = front, end
+    m = (right - left) // 2 + left
     pivot = nums[m]
-    while r >= l:
-        while r >= l and nums[l] < pivot:
-            l += 1
-        while r >= l and nums[r] > pivot:
-            r -= 1
-        if r >= l:
-            nums[l], nums[r] = nums[r], nums[l]
-            l += 1
-            r -= 1
-    help_func(head, r)
-    help_func(l, tail)
+    while right >= left:
+        while right >= left and nums[left] < pivot:
+            left += 1
+        while right >= left and nums[right] > pivot:
+            right -= 1
+        if right >= left:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+    help_func(front, right)
+    help_func(left, end)
 
 
 def quicksort(nums):
